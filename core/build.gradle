@@ -1,0 +1,85 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.ogzkesk.core'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion Versions.kotlinCompilerExt
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation(project(":domain"))
+
+    implementation(Dependencies.core)
+    implementation(Dependencies.activityCompose)
+    implementation(Dependencies.material3)
+
+    implementation(Dependencies.hilt)
+    implementation(Dependencies.hiltNavigation)
+    kapt(Dependencies.hiltCompiler)
+
+    implementation(Dependencies.liveDataKtx)
+    implementation(Dependencies.viewModelKtx)
+    implementation(Dependencies.runtimeKtx)
+    implementation(Dependencies.runtimeCompose)
+    implementation(Dependencies.viewmodelCompose)
+    implementation(Dependencies.navigationCompose)
+
+    implementation(Dependencies.material)
+    implementation(Dependencies.foundation)
+    implementation(Dependencies.ui)
+    implementation(Dependencies.uiTooling)
+    implementation(Dependencies.iconPack)
+    implementation(Dependencies.animation)
+
+    implementation(Dependencies.systemUiController)
+
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.coroutinesAndroid)
+
+    implementation(Dependencies.billingClient)
+    implementation(Dependencies.guavaJre)
+    implementation(Dependencies.guava)
+
+    implementation(Dependencies.coil)
+    implementation(Dependencies.dataStore)
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+}

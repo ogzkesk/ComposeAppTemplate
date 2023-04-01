@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.ogzkesk.data'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 33
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+        buildConfigField "String", "SAMPLE_API_KEY", "\"${properties.getProperty("SAMPLE_API_KEY")}\""
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation(project(":domain"))
+    implementation(project(":core"))
+
+    implementation(Dependencies.core)
+    implementation(Dependencies.gmsAds)
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.coroutinesAndroid)
+    implementation(Dependencies.dataStore)
+
+    implementation(Dependencies.hilt)
+    implementation(Dependencies.hiltNavigation)
+    kapt(Dependencies.hiltCompiler)
+
+    implementation(Dependencies.retrofit2)
+    implementation(Dependencies.gsonConverter)
+    implementation(Dependencies.okHttp3)
+    implementation(Dependencies.loggingInterceptor)
+
+    implementation(Dependencies.room)
+    implementation(Dependencies.roomRuntime)
+    kapt(Dependencies.roomCompiler)
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation("androidx.room:room-testing:2.5.1")
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}
