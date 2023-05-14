@@ -26,7 +26,7 @@ import com.ogzkesk.core.ui.navigation.setup.navigator
 import kotlinx.coroutines.delay
 
 @OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.addSplash(){
+fun NavGraphBuilder.splash(){
     composable(Screen.Splash.route){
         Splash()
     }
@@ -34,12 +34,11 @@ fun NavGraphBuilder.addSplash(){
 
 
 @Composable
-fun Splash(viewModel: SplashViewModel = hiltViewModel()) {
+fun Splash() {
 
     val navigator = navigator
+    val viewModel = hiltViewModel<SplashViewModel>()
     val isAppStarted by viewModel.isAppStarted.collectAsStateWithLifecycle()
-
-    println("splashRecomposition")
 
     LaunchedEffect(key1 = Unit) {
         delay(2000)

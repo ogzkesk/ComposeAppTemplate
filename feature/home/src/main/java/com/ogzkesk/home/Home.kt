@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -20,20 +19,19 @@ import com.ogzkesk.domain.util.ThemePref
 import com.ogzkesk.home.content.HomeTopBar
 
 @OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.addHome() {
+fun NavGraphBuilder.home() {
     composable(TopLevelScreen.Home.route) {
         Home()
     }
 }
 
 @Composable
-fun Home(viewModel: HomeViewModel = hiltViewModel()) {
+fun Home() {
 
     val navigator = navigator
+    val viewModel = hiltViewModel<HomeViewModel>()
     val themePref by viewModel.readThemePref.collectAsStateWithLifecycle()
     val event by viewModel.event.collectAsState(initial = false)
-
-    println("homeRecomposition")
 
     when(event){
         is HomeViewModel.Event.ShowPayWall -> {

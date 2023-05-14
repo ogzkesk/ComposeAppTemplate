@@ -33,7 +33,6 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.ogzkesk.core.ui.theme.MOrange
 
 @Composable
 fun ExpandableTextField(
@@ -89,7 +88,6 @@ fun ExpandableTextField(
 
 
     Column(modifier = modifier) {
-        // todo bundaki row silinebilir düzelt.
         if (label != null) {
             Row(
                 verticalAlignment = Alignment.CenterVertically,

@@ -32,11 +32,8 @@ android {
 
 dependencies {
 
-    implementation(Dependencies.coroutinesAndroid)
-    implementation(Dependencies.coroutinesCore)
+    implementation(libs.coroutines.android)
+    implementation(libs.coroutines.core)
     implementation 'javax.inject:javax.inject:1'
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 }

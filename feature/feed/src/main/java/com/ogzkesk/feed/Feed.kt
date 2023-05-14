@@ -6,9 +6,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import com.google.accompanist.navigation.animation.composable
 import com.ogzkesk.core.ui.navigation.TopLevelScreen
@@ -16,7 +16,7 @@ import com.ogzkesk.core.ui.theme.mTitleLargeSemiBold
 import com.ogzkesk.feed.content.FeedTopBar
 
 @OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.addFeed(){
+fun NavGraphBuilder.feed(){
     composable(TopLevelScreen.Feed.route){
         Feed()
     }
@@ -30,6 +30,9 @@ fun Feed() {
 
 @Composable
 private fun FeedScreen() {
+
+    val viewModel = hiltViewModel<FeedViewModel>()
+
     Scaffold(
         topBar = { FeedTopBar() }
     ) { padd ->

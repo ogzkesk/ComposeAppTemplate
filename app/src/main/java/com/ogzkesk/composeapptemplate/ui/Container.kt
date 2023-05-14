@@ -1,38 +1,30 @@
 package com.ogzkesk.composeapptemplate.ui
 
 import android.content.res.Configuration
-import android.graphics.drawable.GradientDrawable.Orientation
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Divider
 import androidx.compose.material3.PermanentNavigationDrawer
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavGraphBuilder
 import com.google.accompanist.navigation.animation.AnimatedNavHost
 import com.google.accompanist.navigation.animation.composable
 import com.google.accompanist.navigation.animation.rememberAnimatedNavController
 import com.ogzkesk.core.ui.navigation.Container
-import com.ogzkesk.core.ui.navigation.Screen
 import com.ogzkesk.core.ui.navigation.TopLevelScreen
 import com.ogzkesk.core.ui.navigation.bottom_bar.BottomBar
 import com.ogzkesk.core.ui.navigation.bottom_bar.RailBar
-import com.ogzkesk.core.ui.navigation.setup.navigator
-import com.ogzkesk.feed.addFeed
-import com.ogzkesk.home.addHome
-import com.ogzkesk.profile.addProfile
+import com.ogzkesk.feed.feed
+import com.ogzkesk.home.home
+import com.ogzkesk.profile.profile
 
 @OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.addContainer() {
+fun NavGraphBuilder.container() {
     composable(route = Container.HOME) {
         Container()
     }
@@ -84,9 +76,9 @@ fun Container() {
                     start = it.calculateStartPadding(LayoutDirection.Rtl)
                 )
             ) {
-                addHome()
-                addProfile()
-                addFeed()
+                home()
+                profile()
+                feed()
             }
         }
     }

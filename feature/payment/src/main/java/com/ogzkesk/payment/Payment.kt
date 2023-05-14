@@ -20,7 +20,7 @@ import com.ogzkesk.core.ui.theme.mTitleLargeSemiBold
 import com.ogzkesk.payment.content.PaymentTopBar
 
 @OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.addPayment() {
+fun NavGraphBuilder.payment() {
     composable(
         Screen.Payment.route,
         enterTransition = { sheetEnterTransition() },
@@ -33,9 +33,10 @@ fun NavGraphBuilder.addPayment() {
 }
 
 @Composable
-fun Payment(viewModel: PaymentViewModel = hiltViewModel()) {
+fun Payment() {
 
     val navigator = navigator
+    val viewModel = hiltViewModel<PaymentViewModel>()
     BackHandler(enabled = true, onBack = {})
 
     PaymentScreen(

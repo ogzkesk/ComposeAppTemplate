@@ -17,16 +17,17 @@ import com.ogzkesk.core.ui.navigation.setup.navigator
 import com.ogzkesk.core.ui.theme.mTitleLargeSemiBold
 
 @OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.addOnboarding(){
+fun NavGraphBuilder.onboarding(){
     composable(Screen.Onboarding.route){
         Onboarding()
     }
 }
 
 @Composable
-fun Onboarding(viewModel: OnboardingViewModel = hiltViewModel()) {
+fun Onboarding() {
 
     val navigator = navigator
+    val viewModel = hiltViewModel<OnboardingViewModel>()
 
     Column(
         modifier = Modifier.fillMaxSize(),

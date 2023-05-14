@@ -43,7 +43,7 @@ import com.ogzkesk.settings.util.legalRowList
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.addSettings(){
+fun NavGraphBuilder.settings(){
     composable(Screen.Settings.route){
         Settings()
     }
@@ -51,11 +51,12 @@ fun NavGraphBuilder.addSettings(){
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun Settings(viewModel: SettingsViewModel = hiltViewModel()) {
+fun Settings() {
 
     val navigator = navigator
     val scope = rememberCoroutineScope()
     val context = LocalContext.current
+    val viewModel = hiltViewModel<SettingsViewModel>()
     var sheetState by remember { mutableStateOf(SheetContent.THEME) }
     val themePref by viewModel.themePref.collectAsStateWithLifecycle()
     val languagePref by viewModel.languagePref.collectAsStateWithLifecycle()

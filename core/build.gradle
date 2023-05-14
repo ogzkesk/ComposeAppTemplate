@@ -31,7 +31,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion Versions.kotlinCompilerExt
+        kotlinCompilerExtensionVersion kotlin_compiler_ext
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -42,44 +42,38 @@ dependencies {
 
     implementation(project(":domain"))
 
-    implementation(Dependencies.core)
-    implementation(Dependencies.activityCompose)
-    implementation(Dependencies.material3)
+    implementation(libs.core)
+    implementation(libs.activity.compose)
+    implementation(libs.material3)
 
-    implementation(Dependencies.hilt)
-    implementation(Dependencies.hiltNavigation)
-    kapt(Dependencies.hiltCompiler)
+    implementation(libs.hilt)
+    implementation(libs.hilt.navigation)
+    kapt(libs.hilt.compiler)
 
-    implementation(Dependencies.liveDataKtx)
-    implementation(Dependencies.viewModelKtx)
-    implementation(Dependencies.runtimeKtx)
-    implementation(Dependencies.runtimeCompose)
-    implementation(Dependencies.viewmodelCompose)
-    implementation(Dependencies.navigationCompose)
+    implementation(libs.livedata.ktx)
+    implementation(libs.viewmodel.ktx)
+    implementation(libs.runtime.ktx)
+    implementation(libs.runtime.compose)
+    implementation(libs.viewmodel.compose)
+    implementation(libs.navigation.compose)
 
-    implementation(Dependencies.material)
-    implementation(Dependencies.foundation)
-    implementation(Dependencies.ui)
-    implementation(Dependencies.uiTooling)
-    implementation(Dependencies.iconPack)
-    implementation(Dependencies.animation)
+    implementation(libs.material)
+    implementation(libs.foundation)
+    implementation(libs.ui)
+    implementation(libs.ui.tooling)
+    implementation(libs.icon.pack)
+    implementation(libs.animation)
 
-    implementation(Dependencies.systemUiController)
+    implementation(libs.system.ui.controller)
 
-    implementation(Dependencies.coroutinesCore)
-    implementation(Dependencies.coroutinesAndroid)
+    implementation(libs.coroutines.android)
+    implementation(libs.coroutines.core)
 
-    implementation(Dependencies.billingClient)
-    implementation(Dependencies.guavaJre)
-    implementation(Dependencies.guava)
+    implementation('com.android.billingclient:billing:6.0.0')
+    implementation('com.google.guava:guava:31.1-jre')
+    implementation(libs.guava)
 
-    implementation(Dependencies.coil)
-    implementation(Dependencies.dataStore)
+    implementation(libs.coil)
+    implementation(libs.data.store)
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 }

@@ -31,7 +31,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.4.4'
+        kotlinCompilerExtensionVersion kotlin_compiler_ext
     }
     kotlinOptions {
         jvmTarget = '1.8'
@@ -43,41 +43,34 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":domain"))
 
-    implementation(Dependencies.core)
-    implementation(Dependencies.activityCompose)
-    implementation(Dependencies.material3)
+    implementation(libs.core)
+    implementation(libs.activity.compose)
+    implementation(libs.material3)
 
-    implementation(Dependencies.hilt)
-    implementation(Dependencies.hiltNavigation)
-    kapt(Dependencies.hiltCompiler)
+    implementation(libs.hilt)
+    implementation(libs.hilt.navigation)
+    kapt(libs.hilt.compiler)
 
-    implementation(Dependencies.liveDataKtx)
-    implementation(Dependencies.viewModelKtx)
-    implementation(Dependencies.runtimeKtx)
-    implementation(Dependencies.runtimeCompose)
-    implementation(Dependencies.viewmodelCompose)
-    implementation(Dependencies.navigationCompose)
-
-
-    implementation(Dependencies.material)
-    implementation(Dependencies.foundation)
-    implementation(Dependencies.ui)
-    implementation(Dependencies.uiTooling)
-    implementation(Dependencies.iconPack)
-    implementation(Dependencies.animation)
+    implementation(libs.livedata.ktx)
+    implementation(libs.viewmodel.ktx)
+    implementation(libs.runtime.ktx)
+    implementation(libs.runtime.compose)
+    implementation(libs.viewmodel.compose)
+    implementation(libs.navigation.compose)
 
 
-    implementation(Dependencies.systemUiController)
-    implementation(Dependencies.navigationAnimation)
-    implementation(Dependencies.navigationMaterial)
+    implementation(libs.material)
+    implementation(libs.foundation)
+    implementation(libs.ui)
+    implementation(libs.ui.tooling)
+    implementation(libs.icon.pack)
+    implementation(libs.animation)
 
-    implementation(Dependencies.coroutinesAndroid)
-    implementation(Dependencies.coroutinesCore)
 
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+    implementation(libs.system.ui.controller)
+    implementation(libs.navigation.animation)
+    implementation(libs.navigation.material)
+
+    implementation(libs.coroutines.android)
+    implementation(libs.coroutines.core)
 }

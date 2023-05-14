@@ -6,15 +6,15 @@ plugins {
 }
 
 android {
-    namespace Config.applicationId
-    compileSdk Config.compileSdk
+    namespace "com.ogzkesk.composeapptemplate"
+    compileSdk 33
 
     defaultConfig {
-        applicationId Config.applicationId
-        minSdk Config.minSdk
-        targetSdk Config.targetSdk
-        versionCode Config.versionCode
-        versionName Config.versionName
+        applicationId "com.ogzkesk.composeapptemplate"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -39,7 +39,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion Versions.kotlinCompilerExt
+        kotlinCompilerExtensionVersion kotlin_compiler_ext
     }
 }
 
@@ -58,45 +58,37 @@ dependencies {
     implementation(project(":feature:payment"))
 
 
-    implementation(Dependencies.core)
-    implementation(Dependencies.activityCompose)
-    implementation(Dependencies.material3)
+    implementation(libs.core)
+    implementation(libs.activity.compose)
+    implementation(libs.material3)
 
-    implementation(Dependencies.hilt)
-    implementation(Dependencies.hiltNavigation)
-    kapt(Dependencies.hiltCompiler)
+    implementation(libs.hilt)
+    implementation(libs.hilt.navigation)
+    kapt(libs.hilt.compiler)
 
-    implementation(Dependencies.liveDataKtx)
-    implementation(Dependencies.viewModelKtx)
-    implementation(Dependencies.runtimeKtx)
-    implementation(Dependencies.runtimeCompose)
-    implementation(Dependencies.viewmodelCompose)
-    implementation(Dependencies.navigationCompose)
+    implementation(libs.livedata.ktx)
+    implementation(libs.viewmodel.ktx)
+    implementation(libs.runtime.ktx)
+    implementation(libs.runtime.compose)
+    implementation(libs.viewmodel.compose)
+    implementation(libs.navigation.compose)
 
-    implementation(Dependencies.material)
-    implementation(Dependencies.foundation)
-    implementation(Dependencies.ui)
-    implementation(Dependencies.uiTooling)
-    implementation(Dependencies.iconPack)
-    implementation(Dependencies.animation)
+    implementation(libs.material)
+    implementation(libs.foundation)
+    implementation(libs.ui)
+    implementation(libs.ui.tooling)
+    implementation(libs.icon.pack)
+    implementation(libs.animation)
 
-    implementation(Dependencies.gmsAds)
+    implementation(libs.gms.ads)
 
-    implementation(Dependencies.systemUiController)
-    implementation(Dependencies.navigationAnimation)
-    implementation(Dependencies.navigationMaterial)
+    implementation(libs.system.ui.controller)
+    implementation(libs.navigation.animation)
+    implementation(libs.navigation.material)
 
-    implementation(Dependencies.coroutinesAndroid)
-    implementation(Dependencies.coroutinesCore)
+    implementation(libs.coroutines.android)
+    implementation(libs.coroutines.core)
 
+    implementation(libs.splash.screen)
 
-
-    implementation(Dependencies.splashScreen)
-
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
 }

@@ -7,7 +7,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -20,16 +19,17 @@ import com.ogzkesk.core.ui.theme.mTitleLargeSemiBold
 import com.ogzkesk.profile.content.ProfileTopBar
 
 @OptIn(ExperimentalAnimationApi::class)
-fun NavGraphBuilder.addProfile(){
+fun NavGraphBuilder.profile(){
     composable(TopLevelScreen.Profile.route){
         Profile()
     }
 }
 
 @Composable
-fun Profile(viewModel: ProfileViewModel = hiltViewModel()) {
+fun Profile() {
 
     val navigator = navigator
+    val viewModel = hiltViewModel<ProfileViewModel>()
 
     ProfileScreen(
         onSettingsClick = navigator::navigate,
